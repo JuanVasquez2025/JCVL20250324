@@ -1,30 +1,21 @@
 ﻿@model JCVL20250324.AppWebMVC.Models.Warehouse
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles del Almacén";
 }
 
-<h1>Details</h1>
-
-<div>
-    <h4>Warehouse</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WarehouseName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WarehouseName)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Notes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Notes)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div class="container mt-4">
+    <h1 class="mb-4 text-center text-info"><i class="fas fa-info-circle"></i> Detalles del Almacén</h1>
+    <div class="card shadow-lg p-4 border-info">
+        <dl class="row">
+            <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.WarehouseName)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.WarehouseName)</dd>
+            <dt class="col-sm-4 fw-bold">@Html.DisplayNameFor(model => model.Notes)</dt>
+            <dd class="col-sm-8">@Html.DisplayFor(model => model.Notes)</dd>
+        </dl>
+        <div class="d-flex justify-content-between">
+            <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+            <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Regresar</a>
+        </div>
+    </div>
 </div>

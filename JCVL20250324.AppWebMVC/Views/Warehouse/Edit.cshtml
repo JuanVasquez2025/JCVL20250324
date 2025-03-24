@@ -1,39 +1,35 @@
 ﻿@model JCVL20250324.AppWebMVC.Models.Warehouse
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Almacén";
 }
 
-<h1>Edit</h1>
-
-<h4>Warehouse</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+<div class="container mt-4">
+    <h1 class="mb-4 text-center text-primary"><i class="fas fa-edit"></i> Editar Almacén</h1>
+    <div class="card shadow-lg p-4 border-primary">
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="WarehouseName" class="control-label"></label>
-                <input asp-for="WarehouseName" class="form-control" />
+            <div class="mb-3">
+                <label asp-for="WarehouseName" class="form-label fw-bold"></label>
+                <input asp-for="WarehouseName" class="form-control" placeholder="Ingrese el nombre del almacén" />
                 <span asp-validation-for="WarehouseName" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Notes" class="control-label"></label>
-                <input asp-for="Notes" class="form-control" />
+            <div class="mb-3">
+                <label asp-for="Notes" class="form-label fw-bold"></label>
+                <textarea asp-for="Notes" class="form-control" rows="3" placeholder="Notas sobre el almacén"></textarea>
                 <span asp-validation-for="Notes" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+                <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Regresar</a>
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
