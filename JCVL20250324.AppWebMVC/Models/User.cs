@@ -10,7 +10,7 @@ public partial class User
     public int Id { get; set; }
 
 
-    [Required(ErrorMessage = "El campo es obligatorio es obligatorio.")]
+    [Required(ErrorMessage = "El campo Usuario es obligatorio.")]
     [Display(Name = "Nombre de Usuario")]
     public string Username { get; set; } = null!;
 
