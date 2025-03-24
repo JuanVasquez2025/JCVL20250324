@@ -1,0 +1,104 @@
+﻿@model IEnumerable<JCVL20250324.AppWebMVC.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<form asp-action="Index" method="get" class="mt-4 border rounded p-3">
+    <div class="row">
+
+        <div class="col-md-3">
+            <label class="form-label fw-bold">Nombre</label>
+            <input type="text" name="ProductName" class="form-control" placeholder="Ingrese el nombre" />
+        </div>
+        <div class="col-md-3">
+            <label class="form-label fw-bold">Marcas</label>
+            <select name="BrandId" class="form-select" asp-items="ViewBag.BrandId">
+                <option value="0">Seleccione una marca</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label fw-bold">Bodegas</label>
+            <select name="WarehouseId" class="form-select" asp-items="ViewBag.WarehouseId">
+                <option value="0">Seleccione una bodega</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label class="form-label fw-bold">Registros a mostrar</label>
+            <select name="Top" class="form-select">
+                <option value="10">Mostrar 10</option>
+                <option value="20">Mostrar 20</option>
+                <option value="50">Mostrar 50</option>
+                <option value="100">Mostrar 100</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-12 d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary">Buscar</button>
+            <a class="btn btn-success" asp-action="Create">Crear Producto</a>
+        </div>
+    </div>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchasePrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Notes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Warehouse)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchasePrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Brand.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Warehouse.Notes)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
