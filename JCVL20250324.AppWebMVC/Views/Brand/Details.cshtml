@@ -1,0 +1,29 @@
+﻿@model JCVL20250324.AppWebMVC.Models.Brand
+
+@{
+    ViewData["Title"] = "Detalles de la Marca";
+}
+
+<div class="container mt-4">
+    <h1 class="display-4 text-info"><i class="fas fa-info-circle"></i> Detalles de la Marca</h1>
+    <hr class="bg-info" style="height: 2px;" />
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="shadow p-4 rounded bg-light">
+                <dl class="row">
+                    <dt class="col-sm-4 fw-bold">Nombre de la Marca</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.BrandName)</dd>
+
+                    <dt class="col-sm-4 fw-bold">País de Origen</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Country)</dd>
+                </dl>
+
+                <div class="text-center">
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning"><i class="fas fa-edit"></i> Editar</a>
+                    <a asp-action="Index" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Regresar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

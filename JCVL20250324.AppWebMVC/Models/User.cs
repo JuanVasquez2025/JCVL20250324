@@ -21,13 +21,12 @@ public partial class User
     public string Email { get; set; } = null!;
 
     [StringLength(40, MinimumLength = 5, ErrorMessage = "El password debe tener entre 5 y 50 caracteres.")]
-    [Display(Name = "Confirmar Password")]
+    [Display(Name = "Ingresar Password")]
     [DataType(DataType.Password)]
     public string Password { get; set; } = null!;
 
 
 
- 
 
 
     [Required(ErrorMessage = "El role es obligatorio.")]

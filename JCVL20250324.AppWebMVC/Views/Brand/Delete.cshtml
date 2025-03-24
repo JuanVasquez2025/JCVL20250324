@@ -1,0 +1,34 @@
+﻿@model JCVL20250324.AppWebMVC.Models.Brand
+
+@{
+    ViewData["Title"] = "Eliminar Marca";
+}
+
+<div class="container mt-4">
+    <h1 class="display-4 text-danger"><i class="fas fa-trash-alt"></i> Eliminar Marca</h1>
+    <hr class="bg-danger" style="height: 2px;" />
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="shadow p-4 rounded bg-light">
+                <h3 class="text-center">¿Estás seguro de que deseas eliminar esta marca?</h3>
+
+                <dl class="row">
+                    <dt class="col-sm-4 fw-bold">Nombre de la Marca</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.BrandName)</dd>
+
+                    <dt class="col-sm-4 fw-bold">País de Origen</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Country)</dd>
+                </dl>
+
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                        <a asp-action="Index" class="btn btn-outline-secondary"><i class="fas fa-arrow-left"></i> Regresar</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
