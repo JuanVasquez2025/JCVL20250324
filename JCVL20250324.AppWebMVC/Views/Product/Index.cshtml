@@ -44,7 +44,7 @@
 </form>
 
 <div class="table-responsive mt-4">
-    <table class="table table-bordered table-striped table-hover">
+    <table class="table table-bordered table-striped table-hover" id="myTable">
         <thead class="table-dark text-center align-middle">
             <tr>
                 <th>@Html.DisplayNameFor(model => model.ProductName)</th>
@@ -78,6 +78,7 @@
         </tbody>
     </table>
 </div>
+
 @section Scripts {
     <script>
         $(document).ready(function() {
