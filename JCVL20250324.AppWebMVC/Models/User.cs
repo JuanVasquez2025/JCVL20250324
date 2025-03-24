@@ -28,7 +28,6 @@ public partial class User
 
 
 
-
     [Required(ErrorMessage = "El role es obligatorio.")]
     [Display(Name = "Rol")]
     public string Role { get; set; } = null!;

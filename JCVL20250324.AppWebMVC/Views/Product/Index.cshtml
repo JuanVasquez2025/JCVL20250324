@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<JCVL20250324.AppWebMVC.Models.Product>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Productos";
 }
 
-<h1>Index</h1>
-<form asp-action="Index" method="get" class="mt-4 border rounded p-3">
-    <div class="row">
+<h1 class="text-center text-dark">Productos</h1>
 
+<form asp-action="Index" method="get" class="mt-4 border rounded p-4 bg-light shadow-sm">
+    <div class="row g-3">
         <div class="col-md-3">
             <label class="form-label fw-bold">Nombre</label>
             <input type="text" name="ProductName" class="form-control" placeholder="Ingrese el nombre" />
@@ -42,63 +42,56 @@
         </div>
     </div>
 </form>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ProductName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PurchasePrice)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Notes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Brand)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Warehouse)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PurchasePrice)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Notes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Brand.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Warehouse.Notes)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+
+<div class="table-responsive mt-4">
+    <table class="table table-bordered table-striped table-hover">
+        <thead class="table-dark text-center align-middle">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.ProductName)</th>
+                <th>@Html.DisplayNameFor(model => model.Description)</th>
+                <th>@Html.DisplayNameFor(model => model.Price)</th>
+                <th>@Html.DisplayNameFor(model => model.Notes)</th>
+                <th>@Html.DisplayNameFor(model => model.Brand)</th>
+                <th>@Html.DisplayNameFor(model => model.Warehouse)</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="align-middle">
+                    <td>@Html.DisplayFor(modelItem => item.ProductName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Description)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Price)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Notes)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Brand.BrandName)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Warehouse.Notes)</td>
+                    <td class="text-center">
+                        <div class="btn-group" role="group">
+                            <a class="btn btn-sm btn-success" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                            <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+                            <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+@section Scripts {
+    <script>
+        $(document).ready(function() {
+             // $('#myTable').DataTable();
+
+            // $('#myTable').DataTable({
+            //      "language": {
+            //     "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            //     }
+            // });
+
+             $('#myTable').DataTable({
+               "language":languageTable
+             });
+        });
+    </script>
 }
-    </tbody>
-</table>
