@@ -97,7 +97,7 @@ namespace JCVL20250324.AppWebMVC.Controllers
                 {
                     new Claim(ClaimTypes.Name, usuarioAuth.Email),
                     new Claim("Id", usuarioAuth.Id.ToString()),
-                    new Claim("Nombre", usuarioAuth.Username),
+                    new Claim("Username", usuarioAuth.Username),
                     new Claim(ClaimTypes.Role, usuarioAuth.Role)
                 };
 

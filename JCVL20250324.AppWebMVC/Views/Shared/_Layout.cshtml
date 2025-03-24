@@ -56,9 +56,10 @@
                     <div class="d-flex align-items-center">
                         @if (User.Identity.IsAuthenticated)
                         {
-                            var nombre = User.FindFirst("Nombre")?.Value;
-                            <span class="text-light me-3">Bienvenido, @nombre</span>
-                            <a class="btn btn-outline-dark btn-sm" asp-area="" asp-controller="User" asp-action="CerrarSession">Cerrar sesión</a>
+                            var nombre = User.FindFirst("UserName")?.Value;
+                            <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="CerrarSession">Cerrar session</a>
+                            <span>@nombre</span>
+
                         }
                         else
                         {
